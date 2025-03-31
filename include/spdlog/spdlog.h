@@ -24,6 +24,8 @@
 
 namespace spdlog {
 
+SPDLOG_EXPORT_BEGIN
+
 using default_factory = synchronous_factory;
 
 // Create and register a logger with a templated sink type
@@ -346,6 +348,8 @@ inline void critical(const T &msg) {
     #define SPDLOG_LOGGER_CRITICAL(logger, ...) (void)0
     #define SPDLOG_CRITICAL(...) (void)0
 #endif
+
+SPDLOG_EXPORT_END
 
 #ifdef SPDLOG_HEADER_ONLY
     #include "spdlog-inl.h"

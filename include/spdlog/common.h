@@ -130,6 +130,8 @@
 
 namespace spdlog {
 
+SPDLOG_EXPORT_BEGIN
+
 class formatter;
 
 namespace sinks {
@@ -342,6 +344,8 @@ struct file_event_handlers {
     std::function<void(const filename_t &filename, std::FILE *file_stream)> before_close;
     std::function<void(const filename_t &filename)> after_close;
 };
+
+SPDLOG_EXPORT_END
 
 namespace details {
 

@@ -1,8 +1,5 @@
 module;
 
-#include <fmt/format.h>
-#include <fmt/base.h>
-
 #include <atomic>
 #include <utility>
 #include <atomic>
@@ -49,6 +46,8 @@ module;
 #define SPDLOG_EXPORT_BEGIN export {
 #define SPDLOG_EXPORT_END }
 
+import fmt;
+
 export module spdlog;
 
 #ifdef SPDLOG_ATTACH_TO_GLOBAL_MODULE
@@ -86,12 +85,29 @@ extern "C++" {
 srcs
 */
 
-#include "async.cpp"
-#include "cfg.cpp"
-#include "color_sinks.cpp"
-#include "file_sinks.cpp"
-#include "spdlog.cpp"
-#include "stdout_sinks.cpp"
+#if __has_include("async.cpp")
+    #include "async.cpp"
+#endif
+
+#if __has_include("cfg.cpp")
+    #include "cfg.cpp"
+#endif
+
+#if __has_include("color_sinks.cpp")
+    #include "color_sinks.cpp"
+#endif
+
+#if __has_include("file_sinks.cpp")
+    #include "file_sinks.cpp"
+#endif
+
+#if __has_include("spdlog.cpp")
+    #include "spdlog.cpp"
+#endif
+
+#if __has_include("stdout_sinks.cpp")
+    #include "stdout_sinks.cpp"
+#endif
 
 #ifdef SPDLOG_ATTACH_TO_GLOBAL_MODULE
 }
