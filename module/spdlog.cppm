@@ -1,39 +1,32 @@
 module;
 
-#include <atomic>
-#include <utility>
-#include <atomic>
-#include <chrono>
-#include <cstdio>
-#include <exception>
-#include <functional>
-#include <initializer_list>
-#include <memory>
-#include <string>
-#include <type_traits>
-#include <functional>
-#include <memory>
-#include <mutex>
-#include <cassert>
-#include <thread>
-#include <cstring>
-#include <vector>
-#include <algorithm>
-#include <array>
-#include <cctype>
-#include <chrono>
-#include <cstring>
-#include <ctime>
-#include <iterator>
-#include <memory>
-#include <mutex>
-#include <string>
-#include <thread>
-#include <utility>
-#include <vector>
-#include <map>
-#include <unordered_map>
-#include <condition_variable>
+#ifndef SPDLOG_USE_MODULE_STD
+    #include <atomic>
+    #include <utility>
+    #include <chrono>
+    #include <cstdio>
+    #include <exception>
+    #include <functional>
+    #include <initializer_list>
+    #include <memory>
+    #include <string>
+    #include <type_traits>
+    #include <mutex>
+    #include <cassert>
+    #include <thread>
+    #include <cstring>
+    #include <vector>
+    #include <algorithm>
+    #include <array>
+    #include <cctype>
+    #include <ctime>
+    #include <iterator>
+    #include <map>
+    #include <unordered_map>
+    #include <condition_variable>
+#endif
+
+// TODO tmp - check for required headers
 
 #ifdef __linux__
     #include <sys/stat.h>
@@ -46,9 +39,16 @@ module;
 #define SPDLOG_EXPORT_BEGIN export {
 #define SPDLOG_EXPORT_END }
 
-import fmt;
+// TODO tmp - macro
+#define FMT_STRING(x) x
 
 export module spdlog;
+
+import fmt;
+
+#ifdef SPDLOG_USE_MODULE_STD
+import std;
+#endif
 
 #ifdef SPDLOG_ATTACH_TO_GLOBAL_MODULE
 extern "C++" {

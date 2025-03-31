@@ -200,6 +200,9 @@ target_include_directories(spdlog ${SPDLOG_INCLUDES_LEVEL} PUBLIC "$<BUILD_INTER
 target_link_libraries(spdlog PUBLIC Threads::Threads)
 spdlog_enable_warnings(spdlog)
 
+# ---------------------------------------------------------------------------------------
+# Module files addition 
+# ---------------------------------------------------------------------------------------
 if (SPDLOG_BUILD_CXX_MODULE)
     set(SPDLOG_MODULE_SRCS module/spdlog.cppm)
     target_sources(spdlog 
@@ -210,6 +213,8 @@ if (SPDLOG_BUILD_CXX_MODULE)
                    FILES ${SPDLOG_MODULE_SRCS})
     target_compile_features(spdlog PUBLIC cxx_std_20)
     target_include_directories(spdlog PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>)
+    # TODO tmp - hardcoded fmt version
+    target_compile_definitions(spdlog PRIVATE FMT_VERSION=110105 $<$<BOOL:${SPDLOG_USE_MODULE_STD}>:SPDLOG_USE_MODULE_STD>)
 endif ()
 
 set_target_properties(spdlog PROPERTIES VERSION ${SPDLOG_VERSION} SOVERSION
