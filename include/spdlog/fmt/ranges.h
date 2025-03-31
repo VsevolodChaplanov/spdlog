@@ -18,6 +18,8 @@
         #endif
         #include <spdlog/fmt/bundled/ranges.h>
     #else
-        #include <fmt/ranges.h>
+        #if !defined(SPDLOG_MODULE)
+            #include <fmt/ranges.h>
+        #endif
     #endif
 #endif

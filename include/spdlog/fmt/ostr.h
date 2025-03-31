@@ -18,6 +18,8 @@
         #endif
         #include <spdlog/fmt/bundled/ostream.h>
     #else
-        #include <fmt/ostream.h>
+        #if !defined(SPDLOG_MODULE)
+            #include <fmt/ostream.h>
+        #endif
     #endif
 #endif

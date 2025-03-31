@@ -18,6 +18,8 @@
         #endif
         #include <spdlog/fmt/bundled/compile.h>
     #else
-        #include <fmt/compile.h>
+        #if !defined(SPDLOG_MODULE)
+            #include <fmt/compile.h>
+        #endif
     #endif
 #endif

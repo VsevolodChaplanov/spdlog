@@ -18,6 +18,8 @@
         #endif
         #include <spdlog/fmt/bundled/chrono.h>
     #else
-        #include <fmt/chrono.h>
+        #if !defined(SPDLOG_MODULE)
+            #include <fmt/chrono.h>
+        #endif
     #endif
 #endif

@@ -1,8 +1,5 @@
 module;
 
-// TODO: tmp
-#define SPDLOG_ATTACH_TO_GLOBAL_MODULE
-
 #define SPDLOG_MODULE
 
 #define SPDLOG_EXPORT export
@@ -10,6 +7,7 @@ module;
 #define SPDLOG_EXPORT_END }
 
 export module spdlog;
+import fmt;
 
 #ifdef SPDLOG_ATTACH_TO_GLOBAL_MODULE
 extern "C++" {

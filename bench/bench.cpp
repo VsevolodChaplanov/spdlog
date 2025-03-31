@@ -14,7 +14,7 @@
 
 #if defined(SPDLOG_USE_STD_FORMAT)
     #include <format>
-#elif defined(SPDLOG_FMT_EXTERNAL)
+#elif defined(SPDLOG_FMT_EXTERNAL) && !defined(SPDLOG_MODULE)
     #include <fmt/format.h>
 #else
     #include "spdlog/fmt/bundled/format.h"

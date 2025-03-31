@@ -18,6 +18,8 @@
         #endif
         #include <spdlog/fmt/bundled/xchar.h>
     #else
-        #include <fmt/xchar.h>
+        #if !defined(SPDLOG_MODULE)
+            #include <fmt/xchar.h>
+        #endif
     #endif
 #endif

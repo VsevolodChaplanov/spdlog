@@ -19,6 +19,8 @@
         #endif
         #include <spdlog/fmt/bundled/std.h>
     #else
-        #include <fmt/std.h>
+        #if !defined(SPDLOG_MODULE)
+            #include <fmt/std.h>
+        #endif
     #endif
 #endif
