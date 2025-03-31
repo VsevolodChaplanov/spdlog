@@ -16,6 +16,12 @@
 #include <string>
 #include <type_traits>
 
+#ifndef SPDLOG_EXPORT
+    #define SPDLOG_EXPORT
+    #define SPDLOG_EXPORT_BEGIN
+    #define SPDLOG_EXPORT_END
+#endif
+
 #ifdef SPDLOG_USE_STD_FORMAT
     #include <version>
     #if __cpp_lib_format >= 202207L
@@ -364,7 +370,7 @@ SPDLOG_CONSTEXPR_FUNC spdlog::wstring_view_t to_string_view(spdlog::wstring_view
 }
 #endif
 
-#if defined(SPDLOG_USE_STD_FORMAT) &&  __cpp_lib_format >= 202207L
+#if defined(SPDLOG_USE_STD_FORMAT) && __cpp_lib_format >= 202207L
 template <typename T, typename... Args>
 SPDLOG_CONSTEXPR_FUNC std::basic_string_view<T> to_string_view(
     std::basic_format_string<T, Args...> fmt) SPDLOG_NOEXCEPT {

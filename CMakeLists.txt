@@ -92,6 +92,16 @@ option(SPDLOG_FMT_EXTERNAL "Use external fmt library instead of bundled" OFF)
 option(SPDLOG_FMT_EXTERNAL_HO "Use external fmt header-only library instead of bundled" OFF)
 option(SPDLOG_NO_EXCEPTIONS "Compile with -fno-exceptions. Call abort() on any spdlog exceptions" OFF)
 
+option(SPDLOG_BUILD_CXX_MODULE "Build spdlog as a c++20 module" OFF)
+mark_as_advanced(SPDLOG_BUILD_CXX_MODULE)
+
+if (SPDLOG_BUILD_CXX_MODULE AND CMAKE_VERSION LESS 3.28)
+    message(FATAL_ERROR "CMake >= 3.28 is required to build spdlog as a c++20 module")
+endif ()
+
+option(SPDLOG_USE_MODULE_STD "Use standard library module" OFF)
+mark_as_advanced(SPDLOG_USE_MODULE_STD)
+
 if (SPDLOG_FMT_EXTERNAL AND SPDLOG_FMT_EXTERNAL_HO)
     message(FATAL_ERROR "SPDLOG_FMT_EXTERNAL and SPDLOG_FMT_EXTERNAL_HO are mutually exclusive")
 endif ()
@@ -189,6 +199,18 @@ target_include_directories(spdlog ${SPDLOG_INCLUDES_LEVEL} PUBLIC "$<BUILD_INTER
         "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>")
 target_link_libraries(spdlog PUBLIC Threads::Threads)
 spdlog_enable_warnings(spdlog)
+
+if (SPDLOG_BUILD_CXX_MODULE)
+    set(SPDLOG_MODULE_SRCS module/spdlog.cppm)
+    target_sources(spdlog 
+                   PUBLIC 
+                   FILE_SET module_sources 
+                   TYPE CXX_MODULES 
+                   BASE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/module 
+                   FILES ${SPDLOG_MODULE_SRCS})
+    target_compile_features(spdlog PUBLIC cxx_std_20)
+    target_include_directories(spdlog PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>)
+endif ()
 
 set_target_properties(spdlog PROPERTIES VERSION ${SPDLOG_VERSION} SOVERSION
         ${SPDLOG_VERSION_MAJOR}.${SPDLOG_VERSION_MINOR})
@@ -347,6 +369,7 @@ if (SPDLOG_INSTALL)
     set(export_dest_dir "${CMAKE_INSTALL_LIBDIR}/cmake/spdlog")
     set(pkgconfig_install_dir "${CMAKE_INSTALL_LIBDIR}/pkgconfig")
     set(pkg_config "${CMAKE_BINARY_DIR}/${PROJECT_NAME}.pc")
+    set(SPDLOG_INSTALL_MODULEDIR ${CMAKE_INSTALL_DATADIR}/spdlog/c++/)
 
     # ---------------------------------------------------------------------------------------
     # Include files
@@ -357,7 +380,8 @@ if (SPDLOG_INSTALL)
             EXPORT spdlog
             LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
             ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
-            RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+            RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+            FILE_SET module_sources DESTINATION ${SPDLOG_INSTALL_MODULEDIR})
 
     if (NOT SPDLOG_USE_STD_FORMAT AND NOT SPDLOG_FMT_EXTERNAL AND NOT SPDLOG_FMT_EXTERNAL_HO)
         install(DIRECTORY include/${PROJECT_NAME}/fmt/bundled/

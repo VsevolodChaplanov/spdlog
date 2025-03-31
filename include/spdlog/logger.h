@@ -47,7 +47,7 @@
 
 namespace spdlog {
 
-class SPDLOG_API logger {
+SPDLOG_EXPORT class SPDLOG_API logger {
 public:
     // Empty logger
     explicit logger(std::string name)
