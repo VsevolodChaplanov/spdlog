@@ -12,10 +12,12 @@
     #include <spdlog/details/udp_client.h>
 #endif
 
-#include <chrono>
-#include <functional>
-#include <mutex>
-#include <string>
+#ifndef SPDLOG_MODULE
+    #include <chrono>
+    #include <functional>
+    #include <mutex>
+    #include <string>
+#endif
 
 // Simple udp client sink
 // Sends formatted log via udp

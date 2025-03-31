@@ -11,10 +11,12 @@
 #include <spdlog/details/registry.h>
 #include <spdlog/spdlog.h>
 
-#include <algorithm>
-#include <sstream>
-#include <string>
-#include <utility>
+#ifndef SPDLOG_MODULE
+    #include <algorithm>
+    #include <sstream>
+    #include <string>
+    #include <utility>
+#endif
 
 namespace spdlog {
 namespace cfg {

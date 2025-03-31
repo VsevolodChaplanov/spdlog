@@ -7,8 +7,10 @@
     #include <spdlog/common.h>
 #endif
 
-#include <algorithm>
-#include <iterator>
+#ifndef SPDLOG_MODULE
+    #include <algorithm>
+    #include <iterator>
+#endif
 
 namespace spdlog {
 namespace level {

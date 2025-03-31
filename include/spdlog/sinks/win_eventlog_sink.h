@@ -39,9 +39,11 @@ Windows Registry Editor Version 5.00
 #include <spdlog/details/windows_include.h>
 #include <winbase.h>
 
-#include <mutex>
-#include <string>
-#include <vector>
+#ifndef SPDLOG_MODULE
+    #include <mutex>
+    #include <string>
+    #include <vector>
+#endif
 
 namespace spdlog {
 namespace sinks {

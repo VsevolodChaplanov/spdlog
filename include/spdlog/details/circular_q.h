@@ -4,8 +4,10 @@
 // circular q view of std::vector.
 #pragma once
 
-#include <cassert>
-#include <vector>
+#ifndef SPDLOG_MODULE
+    #include <cassert>
+    #include <vector>
+#endif
 
 #include "spdlog/common.h"
 

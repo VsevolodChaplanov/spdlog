@@ -11,12 +11,14 @@
 #include <spdlog/common.h>
 #include <spdlog/details/periodic_worker.h>
 
-#include <chrono>
-#include <functional>
-#include <memory>
-#include <mutex>
-#include <string>
-#include <unordered_map>
+#ifndef SPDLOG_MODULE
+    #include <chrono>
+    #include <functional>
+    #include <memory>
+    #include <mutex>
+    #include <string>
+    #include <unordered_map>
+#endif
 
 namespace spdlog {
 class logger;

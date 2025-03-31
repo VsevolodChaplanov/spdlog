@@ -10,13 +10,14 @@
     #include <spdlog/details/os.h>
     #include <spdlog/details/synchronous_factory.h>
     #include <spdlog/sinks/base_sink.h>
-
-    #include <android/log.h>
-    #include <chrono>
-    #include <mutex>
-    #include <string>
-    #include <thread>
-    #include <type_traits>
+    #ifndef SPDLOG_MODULE
+        #include <android/log.h>
+        #include <chrono>
+        #include <mutex>
+        #include <string>
+        #include <thread>
+        #include <type_traits>
+    #endif
 
     #if !defined(SPDLOG_ANDROID_RETRIES)
         #define SPDLOG_ANDROID_RETRIES 2

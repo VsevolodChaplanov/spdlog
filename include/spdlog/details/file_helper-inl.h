@@ -10,12 +10,14 @@
 #include <spdlog/common.h>
 #include <spdlog/details/os.h>
 
-#include <cerrno>
-#include <chrono>
-#include <cstdio>
-#include <string>
-#include <thread>
-#include <tuple>
+#ifndef SPDLOG_MODULE
+    #include <cerrno>
+    #include <chrono>
+    #include <cstdio>
+    #include <string>
+    #include <thread>
+    #include <tuple>
+#endif
 
 namespace spdlog {
 namespace details {

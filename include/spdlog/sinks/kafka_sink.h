@@ -15,7 +15,11 @@
 #include "spdlog/details/null_mutex.h"
 #include "spdlog/details/synchronous_factory.h"
 #include "spdlog/sinks/base_sink.h"
-#include <mutex>
+
+#ifndef SPDLOG_MODULE
+    #include <mutex>
+#endif
+
 #include <spdlog/common.h>
 
 // kafka header

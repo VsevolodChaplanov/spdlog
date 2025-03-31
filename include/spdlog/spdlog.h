@@ -15,10 +15,12 @@
 #include <spdlog/logger.h>
 #include <spdlog/version.h>
 
-#include <chrono>
-#include <functional>
-#include <memory>
-#include <string>
+#ifndef SPDLOG_MODULE
+    #include <chrono>
+    #include <functional>
+    #include <memory>
+    #include <string>
+#endif
 
 namespace spdlog {
 

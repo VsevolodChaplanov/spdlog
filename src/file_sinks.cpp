@@ -10,7 +10,9 @@
 #include <spdlog/sinks/base_sink-inl.h>
 #include <spdlog/sinks/basic_file_sink-inl.h>
 
-#include <mutex>
+#ifndef SPDLOG_MODULE
+    #include <mutex>
+#endif
 
 template class SPDLOG_API spdlog::sinks::basic_file_sink<std::mutex>;
 template class SPDLOG_API spdlog::sinks::basic_file_sink<spdlog::details::null_mutex>;

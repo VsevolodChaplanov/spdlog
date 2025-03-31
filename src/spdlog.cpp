@@ -18,7 +18,9 @@
 #include <spdlog/sinks/sink-inl.h>
 #include <spdlog/spdlog-inl.h>
 
-#include <mutex>
+#ifndef SPDLOG_MODULE
+    #include <mutex>
+#endif
 
 // template instantiate logger constructor with sinks init list
 template SPDLOG_API spdlog::logger::logger(std::string name,

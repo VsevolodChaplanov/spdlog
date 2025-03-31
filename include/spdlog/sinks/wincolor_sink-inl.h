@@ -8,7 +8,10 @@
 #endif
 
 #include <spdlog/details/windows_include.h>
-#include <wincon.h>
+
+#ifndef SPDLOG_MODULE
+    #include <wincon.h>
+#endif
 
 #include <spdlog/common.h>
 #include <spdlog/pattern_formatter.h>
@@ -137,10 +140,10 @@ void SPDLOG_INLINE wincolor_sink<ConsoleMutex>::print_range_(const memory_buf_t 
 #if defined(SPDLOG_UTF8_TO_WCHAR_CONSOLE)
         wmemory_buf_t wformatted;
         details::os::utf8_to_wstrbuf(string_view_t(formatted.data() + start, end - start),
-            wformatted);
+                                     wformatted);
         auto size = static_cast<DWORD>(wformatted.size());
         auto ignored = ::WriteConsoleW(static_cast<HANDLE>(out_handle_), wformatted.data(), size,
-            nullptr, nullptr);
+                                       nullptr, nullptr);
 #else
         auto size = static_cast<DWORD>(end - start);
         auto ignored = ::WriteConsoleA(static_cast<HANDLE>(out_handle_), formatted.data() + start,

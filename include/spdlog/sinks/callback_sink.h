@@ -7,8 +7,10 @@
 #include <spdlog/details/synchronous_factory.h>
 #include <spdlog/sinks/base_sink.h>
 
-#include <mutex>
-#include <string>
+#ifndef SPDLOG_MODULE
+    #include <mutex>
+    #include <string>
+#endif
 
 namespace spdlog {
 
@@ -27,7 +29,7 @@ public:
 
 protected:
     void sink_it_(const details::log_msg &msg) override { callback_(msg); }
-    void flush_() override{}
+    void flush_() override {}
 
 private:
     custom_log_callback callback_;

@@ -12,10 +12,12 @@
     #include <spdlog/details/tcp_client.h>
 #endif
 
-#include <chrono>
-#include <functional>
-#include <mutex>
-#include <string>
+#ifndef SPDLOG_MODULE
+    #include <chrono>
+    #include <functional>
+    #include <mutex>
+    #include <string>
+#endif
 
 #pragma once
 

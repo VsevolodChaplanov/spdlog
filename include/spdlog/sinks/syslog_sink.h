@@ -7,9 +7,11 @@
 #include <spdlog/details/synchronous_factory.h>
 #include <spdlog/sinks/base_sink.h>
 
-#include <array>
-#include <string>
-#include <syslog.h>
+#ifndef SPDLOG_MODULE
+    #include <array>
+    #include <string>
+    #include <syslog.h>
+#endif
 
 namespace spdlog {
 namespace sinks {

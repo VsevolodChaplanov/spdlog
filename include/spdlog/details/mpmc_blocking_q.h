@@ -12,9 +12,11 @@
 
 #include <spdlog/details/circular_q.h>
 
-#include <atomic>
-#include <condition_variable>
-#include <mutex>
+#ifndef SPDLOG_MODULE
+    #include <atomic>
+    #include <condition_variable>
+    #include <mutex>
+#endif
 
 namespace spdlog {
 namespace details {

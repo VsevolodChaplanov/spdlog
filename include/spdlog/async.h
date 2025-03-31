@@ -18,9 +18,11 @@
 #include <spdlog/details/registry.h>
 #include <spdlog/details/thread_pool.h>
 
-#include <functional>
-#include <memory>
-#include <mutex>
+#ifndef SPDLOG_MODULE
+    #include <functional>
+    #include <memory>
+    #include <mutex>
+#endif
 
 namespace spdlog {
 
@@ -89,8 +91,7 @@ inline void init_thread_pool(size_t q_size,
 }
 
 inline void init_thread_pool(size_t q_size, size_t thread_count) {
-    init_thread_pool(
-        q_size, thread_count, [] {}, [] {});
+    init_thread_pool(q_size, thread_count, [] {}, [] {});
 }
 
 // get the global thread pool.

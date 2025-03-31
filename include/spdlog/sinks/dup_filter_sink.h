@@ -7,10 +7,12 @@
 #include <spdlog/details/log_msg.h>
 #include <spdlog/details/null_mutex.h>
 
-#include <chrono>
-#include <cstdio>
-#include <mutex>
-#include <string>
+#ifndef SPDLOG_MODULE
+    #include <chrono>
+    #include <cstdio>
+    #include <mutex>
+    #include <string>
+#endif
 
 // Duplicate message removal sink.
 // Skip the message if previous one is identical and less than "max_skip_duration" have passed

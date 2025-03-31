@@ -3,7 +3,10 @@
 
 #pragma once
 
-#include <cstdio>
+#ifndef SPDLOG_MODULE
+    #include <cstdio>
+#endif
+
 #include <spdlog/details/console_globals.h>
 #include <spdlog/details/synchronous_factory.h>
 #include <spdlog/sinks/sink.h>

@@ -8,11 +8,13 @@
 #include <spdlog/details/null_mutex.h>
 #include <spdlog/sinks/sink.h>
 
-#include <array>
-#include <cstdint>
-#include <memory>
-#include <mutex>
-#include <string>
+#ifndef SPDLOG_MODULE
+    #include <array>
+    #include <cstdint>
+    #include <memory>
+    #include <mutex>
+    #include <string>
+#endif
 
 namespace spdlog {
 namespace sinks {

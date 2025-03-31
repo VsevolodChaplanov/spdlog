@@ -10,8 +10,10 @@
 #include <spdlog/common.h>
 #include <spdlog/pattern_formatter.h>
 
-#include <memory>
-#include <mutex>
+#ifndef SPDLOG_MODULE
+    #include <memory>
+    #include <mutex>
+#endif
 
 template <typename Mutex>
 SPDLOG_INLINE spdlog::sinks::base_sink<Mutex>::base_sink()

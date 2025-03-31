@@ -2,13 +2,19 @@
 // Distributed under the MIT License (http://opensource.org/licenses/MIT)
 #pragma once
 
-#include <chrono>
-#include <iterator>
+#ifndef SPDLOG_MODULE
+    #include <chrono>
+    #include <iterator>
+#endif
+
 #include <spdlog/common.h>
 #include <spdlog/fmt/fmt.h>
-#include <type_traits>
 
-#ifdef SPDLOG_USE_STD_FORMAT
+#ifndef SPDLOG_MODULE
+    #include <type_traits>
+#endif
+
+#if defined(SPDLOG_USE_STD_FORMAT) && !defined(SPDLOG_MODULE)
     #include <charconv>
     #include <limits>
 #endif

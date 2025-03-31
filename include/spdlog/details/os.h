@@ -3,7 +3,10 @@
 
 #pragma once
 
-#include <ctime>  // std::time_t
+#ifndef SPDLOG_MODULE
+    #include <ctime>  // std::time_t
+#endif
+
 #include <spdlog/common.h>
 
 namespace spdlog {

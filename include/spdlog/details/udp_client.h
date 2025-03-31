@@ -10,17 +10,22 @@
     #error "include udp_client-windows.h instead"
 #endif
 
-#include <arpa/inet.h>
-#include <cstring>
-#include <netdb.h>
-#include <netinet/in.h>
-#include <netinet/udp.h>
+#ifndef SPDLOG_MODULE
+    #include <arpa/inet.h>
+    #include <cstring>
+    #include <netdb.h>
+    #include <netinet/in.h>
+    #include <netinet/udp.h>
+#endif
 #include <spdlog/common.h>
 #include <spdlog/details/os.h>
-#include <sys/socket.h>
-#include <unistd.h>
 
-#include <string>
+#ifndef SPDLOG_MODULE
+    #include <sys/socket.h>
+    #include <unistd.h>
+
+    #include <string>
+#endif
 
 namespace spdlog {
 namespace details {

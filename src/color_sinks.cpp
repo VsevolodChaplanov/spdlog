@@ -5,7 +5,9 @@
     #error Please define SPDLOG_COMPILED_LIB to compile this file.
 #endif
 
-#include <mutex>
+#ifndef SPDLOG_MODULE
+    #include <mutex>
+#endif
 
 #include <spdlog/async.h>
 #include <spdlog/details/null_mutex.h>

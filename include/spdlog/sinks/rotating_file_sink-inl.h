@@ -13,12 +13,14 @@
 #include <spdlog/details/null_mutex.h>
 #include <spdlog/fmt/fmt.h>
 
-#include <cerrno>
-#include <chrono>
-#include <ctime>
-#include <mutex>
-#include <string>
-#include <tuple>
+#ifndef SPDLOG_MODULE
+    #include <cerrno>
+    #include <chrono>
+    #include <ctime>
+    #include <mutex>
+    #include <string>
+    #include <tuple>
+#endif
 
 namespace spdlog {
 namespace sinks {

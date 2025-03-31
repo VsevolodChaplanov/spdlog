@@ -8,7 +8,10 @@
 #include <spdlog/details/synchronous_factory.h>
 #include <spdlog/sinks/base_sink.h>
 
-#include <array>
+#ifndef SPDLOG_MODULE
+    #include <array>
+#endif
+
 #ifndef SD_JOURNAL_SUPPRESS_LOCATION
     #define SD_JOURNAL_SUPPRESS_LOCATION
 #endif

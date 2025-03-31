@@ -6,15 +6,17 @@
 #include <spdlog/details/null_mutex.h>
 #include <spdlog/tweakme.h>
 
-#include <atomic>
-#include <chrono>
-#include <cstdio>
-#include <exception>
-#include <functional>
-#include <initializer_list>
-#include <memory>
-#include <string>
-#include <type_traits>
+#ifndef SPDLOG_MODULE
+    #include <atomic>
+    #include <chrono>
+    #include <cstdio>
+    #include <exception>
+    #include <functional>
+    #include <initializer_list>
+    #include <memory>
+    #include <string>
+    #include <type_traits>
+#endif
 
 #ifndef SPDLOG_EXPORT
     #define SPDLOG_EXPORT
@@ -268,18 +270,15 @@ enum level_enum : int {
 #define SPDLOG_LEVEL_NAME_OFF spdlog::string_view_t("off", 3)
 
 #if !defined(SPDLOG_LEVEL_NAMES)
-    #define SPDLOG_LEVEL_NAMES                                                                  \
-        {                                                                                       \
-            SPDLOG_LEVEL_NAME_TRACE, SPDLOG_LEVEL_NAME_DEBUG, SPDLOG_LEVEL_NAME_INFO,           \
-                SPDLOG_LEVEL_NAME_WARNING, SPDLOG_LEVEL_NAME_ERROR, SPDLOG_LEVEL_NAME_CRITICAL, \
-                SPDLOG_LEVEL_NAME_OFF                                                           \
-        }
+    #define SPDLOG_LEVEL_NAMES                                                           \
+        {SPDLOG_LEVEL_NAME_TRACE,   SPDLOG_LEVEL_NAME_DEBUG, SPDLOG_LEVEL_NAME_INFO,     \
+         SPDLOG_LEVEL_NAME_WARNING, SPDLOG_LEVEL_NAME_ERROR, SPDLOG_LEVEL_NAME_CRITICAL, \
+         SPDLOG_LEVEL_NAME_OFF}
 #endif
 
 #if !defined(SPDLOG_SHORT_LEVEL_NAMES)
 
-    #define SPDLOG_SHORT_LEVEL_NAMES \
-        { "T", "D", "I", "W", "E", "C", "O" }
+    #define SPDLOG_SHORT_LEVEL_NAMES {"T", "D", "I", "W", "E", "C", "O"}
 #endif
 
 SPDLOG_API const string_view_t &to_string_view(spdlog::level::level_enum l) SPDLOG_NOEXCEPT;

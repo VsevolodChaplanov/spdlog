@@ -7,7 +7,10 @@
     #include <spdlog/sinks/stdout_sinks.h>
 #endif
 
-#include <memory>
+#ifndef SPDLOG_MODULE
+    #include <memory>
+#endif
+
 #include <spdlog/details/console_globals.h>
 #include <spdlog/pattern_formatter.h>
 #include <spdlog/details/os.h>

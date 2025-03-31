@@ -7,11 +7,13 @@
 #include <spdlog/details/mpmc_blocking_q.h>
 #include <spdlog/details/os.h>
 
-#include <chrono>
-#include <functional>
-#include <memory>
-#include <thread>
-#include <vector>
+#ifndef SPDLOG_MODULE
+    #include <chrono>
+    #include <functional>
+    #include <memory>
+    #include <thread>
+    #include <vector>
+#endif
 
 namespace spdlog {
 class async_logger;

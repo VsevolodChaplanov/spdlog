@@ -18,19 +18,21 @@
 #include <spdlog/fmt/fmt.h>
 #include <spdlog/formatter.h>
 
-#include <algorithm>
-#include <array>
-#include <cctype>
-#include <chrono>
-#include <cstring>
-#include <ctime>
-#include <iterator>
-#include <memory>
-#include <mutex>
-#include <string>
-#include <thread>
-#include <utility>
-#include <vector>
+#ifndef SPDLOG_MODULE
+    #include <algorithm>
+    #include <array>
+    #include <cctype>
+    #include <chrono>
+    #include <cstring>
+    #include <ctime>
+    #include <iterator>
+    #include <memory>
+    #include <mutex>
+    #include <string>
+    #include <thread>
+    #include <utility>
+    #include <vector>
+#endif
 
 namespace spdlog {
 namespace details {

@@ -3,13 +3,16 @@
 
 #pragma once
 
-#include <array>
-#include <memory>
-#include <mutex>
+#ifndef SPDLOG_MODULE
+    #include <array>
+    #include <memory>
+    #include <mutex>
+    #include <string>
+#endif
+
 #include <spdlog/details/console_globals.h>
 #include <spdlog/details/null_mutex.h>
 #include <spdlog/sinks/sink.h>
-#include <string>
 
 namespace spdlog {
 namespace sinks {

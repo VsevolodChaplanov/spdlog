@@ -8,13 +8,15 @@
 #include <spdlog/details/os.h>
 #include <spdlog/formatter.h>
 
-#include <chrono>
-#include <ctime>
-#include <memory>
+#ifndef SPDLOG_MODULE
+    #include <chrono>
+    #include <ctime>
+    #include <memory>
 
-#include <string>
-#include <unordered_map>
-#include <vector>
+    #include <string>
+    #include <unordered_map>
+    #include <vector>
+#endif
 
 namespace spdlog {
 namespace details {

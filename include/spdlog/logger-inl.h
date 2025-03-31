@@ -11,7 +11,9 @@
 #include <spdlog/pattern_formatter.h>
 #include <spdlog/sinks/sink.h>
 
-#include <cstdio>
+#ifndef SPDLOG_MODULE
+    #include <cstdio>
+#endif
 
 namespace spdlog {
 

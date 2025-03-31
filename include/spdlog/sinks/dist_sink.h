@@ -8,10 +8,12 @@
 #include <spdlog/details/null_mutex.h>
 #include <spdlog/pattern_formatter.h>
 
-#include <algorithm>
-#include <memory>
-#include <mutex>
-#include <vector>
+#ifndef SPDLOG_MODULE
+    #include <algorithm>
+    #include <memory>
+    #include <mutex>
+    #include <vector>
+#endif
 
 // Distribution sink (mux). Stores a vector of sinks which get called when log
 // is called

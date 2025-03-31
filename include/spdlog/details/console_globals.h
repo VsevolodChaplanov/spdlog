@@ -3,7 +3,10 @@
 
 #pragma once
 
-#include <mutex>
+#ifndef SPDLOG_MODULE
+    #include <mutex>
+#endif
+
 #include <spdlog/details/null_mutex.h>
 
 namespace spdlog {

@@ -3,8 +3,10 @@
 
 #pragma once
 
-#include <atomic>
-#include <utility>
+#ifndef SPDLOG_MODULE
+    #include <atomic>
+    #include <utility>
+#endif
 // null, no cost dummy "mutex" and dummy "atomic" int
 
 namespace spdlog {

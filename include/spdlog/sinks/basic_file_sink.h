@@ -8,8 +8,10 @@
 #include <spdlog/details/synchronous_factory.h>
 #include <spdlog/sinks/base_sink.h>
 
-#include <mutex>
-#include <string>
+#ifndef SPDLOG_MODULE
+    #include <mutex>
+    #include <string>
+#endif
 
 namespace spdlog {
 namespace sinks {

@@ -4,7 +4,10 @@
 #pragma once
 
 #include <spdlog/common.h>
-#include <tuple>
+
+#ifndef SPDLOG_MODULE
+    #include <tuple>
+#endif
 
 namespace spdlog {
 namespace details {

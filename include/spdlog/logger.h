@@ -25,7 +25,9 @@
     #include <spdlog/details/os.h>
 #endif
 
-#include <vector>
+#ifndef SPDLOG_MODULE
+    #include <vector>
+#endif
 
 #ifndef SPDLOG_NO_EXCEPTIONS
     #define SPDLOG_LOGGER_CATCH(location)                                                 \

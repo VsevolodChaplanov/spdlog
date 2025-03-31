@@ -21,11 +21,13 @@
     #endif
 #endif  // SPDLOG_DISABLE_DEFAULT_LOGGER
 
-#include <chrono>
-#include <functional>
-#include <memory>
-#include <string>
-#include <unordered_map>
+#ifndef SPDLOG_MODULE
+    #include <chrono>
+    #include <functional>
+    #include <memory>
+    #include <string>
+    #include <unordered_map>
+#endif
 
 namespace spdlog {
 namespace details {

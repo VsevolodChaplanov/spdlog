@@ -11,8 +11,10 @@
     #endif
     #include <spdlog/sinks/base_sink.h>
 
-    #include <mutex>
-    #include <string>
+    #ifndef SPDLOG_MODULE
+        #include <mutex>
+        #include <string>
+    #endif
 
     // Avoid including windows.h (https://stackoverflow.com/a/30741042)
     #if defined(SPDLOG_WCHAR_TO_UTF8_SUPPORT)

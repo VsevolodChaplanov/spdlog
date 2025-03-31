@@ -6,8 +6,10 @@
 #include <spdlog/details/null_mutex.h>
 #include <spdlog/sinks/base_sink.h>
 
-#include <mutex>
-#include <ostream>
+#ifndef SPDLOG_MODULE
+    #include <mutex>
+    #include <ostream>
+#endif
 
 namespace spdlog {
 namespace sinks {

@@ -6,9 +6,11 @@
 #include <spdlog/details/circular_q.h>
 #include <spdlog/details/log_msg_buffer.h>
 
-#include <atomic>
-#include <functional>
-#include <mutex>
+#ifndef SPDLOG_MODULE
+    #include <atomic>
+    #include <functional>
+    #include <mutex>
+#endif
 
 // Store log messages in circular buffer.
 // Useful for storing debug data in case of error/warning happens.

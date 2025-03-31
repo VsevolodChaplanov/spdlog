@@ -12,11 +12,13 @@
 #include <spdlog/fmt/fmt.h>
 #include <spdlog/sinks/base_sink.h>
 
-#include <chrono>
-#include <cstdio>
-#include <ctime>
-#include <mutex>
-#include <string>
+#ifndef SPDLOG_MODULE
+    #include <chrono>
+    #include <cstdio>
+    #include <ctime>
+    #include <mutex>
+    #include <string>
+#endif
 
 namespace spdlog {
 namespace sinks {
