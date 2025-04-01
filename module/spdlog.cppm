@@ -39,9 +39,6 @@ module;
 #define SPDLOG_EXPORT_BEGIN export {
 #define SPDLOG_EXPORT_END }
 
-// TODO tmp - macro
-#define FMT_STRING(x) x
-
 export module spdlog;
 
 import fmt;

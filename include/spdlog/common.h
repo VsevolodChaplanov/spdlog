@@ -58,6 +58,7 @@
 #include <spdlog/fmt/fmt.h>
 
 #if !defined(SPDLOG_USE_STD_FORMAT) && \
+    !defined(SPDLOG_MODULE) && \
     FMT_VERSION >= 80000  // backward compatibility with fmt versions older than 8
     #define SPDLOG_FMT_RUNTIME(format_string) fmt::runtime(format_string)
     #define SPDLOG_FMT_STRING(format_string) FMT_STRING(format_string)
