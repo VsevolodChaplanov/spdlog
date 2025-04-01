@@ -1,6 +1,6 @@
 module;
 
-#ifndef SPDLOG_USE_MODULE_STD
+#ifndef SPDLOG_IMPORT_STD
     #include <atomic>
     #include <utility>
     #include <chrono>
@@ -43,7 +43,7 @@ export module spdlog;
 
 import fmt;
 
-#ifdef SPDLOG_USE_MODULE_STD
+#ifdef SPDLOG_IMPORT_STD
 import std;
 #endif
 
