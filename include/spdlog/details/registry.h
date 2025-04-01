@@ -8,10 +8,10 @@
 // If user requests a non existing logger, nullptr will be returned
 // This class is thread safe
 
-#include <spdlog/common.h>
-#include <spdlog/details/periodic_worker.h>
-
 #ifndef SPDLOG_MODULE
+    #include <spdlog/common.h>
+    #include <spdlog/details/periodic_worker.h>
+
     #include <chrono>
     #include <functional>
     #include <memory>
@@ -21,7 +21,7 @@
 #endif
 
 namespace spdlog {
-class logger;
+SPDLOG_EXPORT class logger;
 
 namespace details {
 class thread_pool;

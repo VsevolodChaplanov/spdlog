@@ -3,10 +3,10 @@
 
 #pragma once
 
-#include <spdlog/details/null_mutex.h>
-#include <spdlog/tweakme.h>
-
 #ifndef SPDLOG_MODULE
+    #include <spdlog/details/null_mutex.h>
+    #include <spdlog/tweakme.h>
+
     #include <atomic>
     #include <chrono>
     #include <cstdio>
@@ -55,10 +55,11 @@
     #define SPDLOG_INLINE inline
 #endif  // #ifdef SPDLOG_COMPILED_LIB
 
-#include <spdlog/fmt/fmt.h>
+#ifndef SPDLOG_MODULE
+    #include <spdlog/fmt/fmt.h>
+#endif
 
-#if !defined(SPDLOG_USE_STD_FORMAT) && \
-    !defined(SPDLOG_MODULE) && \
+#if !defined(SPDLOG_USE_STD_FORMAT) && !defined(SPDLOG_MODULE) && \
     FMT_VERSION >= 80000  // backward compatibility with fmt versions older than 8
     #define SPDLOG_FMT_RUNTIME(format_string) fmt::runtime(format_string)
     #define SPDLOG_FMT_STRING(format_string) FMT_STRING(format_string)

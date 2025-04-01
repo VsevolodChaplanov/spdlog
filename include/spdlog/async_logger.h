@@ -14,7 +14,9 @@
 // Upon destruction, logs all remaining messages in the queue before
 // destructing..
 
-#include <spdlog/logger.h>
+#ifndef SPDLOG_MODULE
+    #include <spdlog/logger.h>
+#endif
 
 namespace spdlog {
 
@@ -30,8 +32,9 @@ namespace details {
 class thread_pool;
 }
 
-SPDLOG_EXPORT class SPDLOG_API async_logger final : public std::enable_shared_from_this<async_logger>,
-                                      public logger {
+SPDLOG_EXPORT class SPDLOG_API async_logger final
+    : public std::enable_shared_from_this<async_logger>,
+      public logger {
     friend class details::thread_pool;
 
 public:

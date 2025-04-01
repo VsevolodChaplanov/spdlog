@@ -9,8 +9,8 @@
     #include <mutex>
 #endif
 
-#include <spdlog/async.h>
-#include <spdlog/details/null_mutex.h>
+#include "spdlog/async.h"
+#include "spdlog/details/null_mutex.h"
 //
 // color sinks
 //

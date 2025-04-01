@@ -3,14 +3,14 @@
 
 #pragma once
 
-#ifndef SPDLOG_HEADER_ONLY
-    #include <spdlog/details/file_helper.h>
-#endif
-
-#include <spdlog/common.h>
-#include <spdlog/details/os.h>
-
 #ifndef SPDLOG_MODULE
+    #ifndef SPDLOG_HEADER_ONLY
+        #include <spdlog/details/file_helper.h>
+    #endif
+
+    #include <spdlog/common.h>
+    #include <spdlog/details/os.h>
+
     #include <cerrno>
     #include <chrono>
     #include <cstdio>

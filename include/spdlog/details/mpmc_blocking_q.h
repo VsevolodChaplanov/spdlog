@@ -10,9 +10,9 @@
 // dequeue_for(..) - will block until the queue is not empty or timeout have
 // passed.
 
-#include <spdlog/details/circular_q.h>
-
 #ifndef SPDLOG_MODULE
+    #include <spdlog/details/circular_q.h>
+
     #include <atomic>
     #include <condition_variable>
     #include <mutex>

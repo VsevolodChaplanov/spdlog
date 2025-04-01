@@ -14,11 +14,11 @@
 // This is because each message in the queue holds a shared_ptr to the
 // originating logger.
 
-#include <spdlog/async_logger.h>
-#include <spdlog/details/registry.h>
-#include <spdlog/details/thread_pool.h>
-
 #ifndef SPDLOG_MODULE
+    #include <spdlog/async_logger.h>
+    #include <spdlog/details/registry.h>
+    #include <spdlog/details/thread_pool.h>
+
     #include <functional>
     #include <memory>
     #include <mutex>

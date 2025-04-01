@@ -3,10 +3,10 @@
 
 #pragma once
 
-#include <spdlog/details/null_mutex.h>
-#include <spdlog/sinks/base_sink.h>
-
 #ifndef SPDLOG_MODULE
+    #include <spdlog/details/null_mutex.h>
+    #include <spdlog/sinks/base_sink.h>
+
     #include <mutex>
     #include <ostream>
 #endif

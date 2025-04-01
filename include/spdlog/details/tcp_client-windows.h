@@ -3,12 +3,12 @@
 
 #pragma once
 
-#define WIN32_LEAN_AND_MEAN
-// tcp client helper
-#include <spdlog/common.h>
-#include <spdlog/details/os.h>
-
 #ifndef SPDLOG_MODULE
+    #define WIN32_LEAN_AND_MEAN
+    // tcp client helper
+    #include <spdlog/common.h>
+    #include <spdlog/details/os.h>
+
     #include <stdio.h>
     #include <stdlib.h>
     #include <string>

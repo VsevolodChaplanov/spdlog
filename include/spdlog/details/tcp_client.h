@@ -7,11 +7,11 @@
     #error include tcp_client-windows.h instead
 #endif
 
-// tcp client helper
-#include <spdlog/common.h>
-#include <spdlog/details/os.h>
-
 #ifndef SPDLOG_MODULE
+    // tcp client helper
+    #include <spdlog/common.h>
+    #include <spdlog/details/os.h>
+
     #include <arpa/inet.h>
     #include <netdb.h>
     #include <netinet/in.h>

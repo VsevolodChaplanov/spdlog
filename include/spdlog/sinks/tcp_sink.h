@@ -3,16 +3,16 @@
 
 #pragma once
 
-#include <spdlog/common.h>
-#include <spdlog/details/null_mutex.h>
-#include <spdlog/sinks/base_sink.h>
-#ifdef _WIN32
-    #include <spdlog/details/tcp_client-windows.h>
-#else
-    #include <spdlog/details/tcp_client.h>
-#endif
-
 #ifndef SPDLOG_MODULE
+    #include <spdlog/common.h>
+    #include <spdlog/details/null_mutex.h>
+    #include <spdlog/sinks/base_sink.h>
+    #ifdef _WIN32
+        #include <spdlog/details/tcp_client-windows.h>
+    #else
+        #include <spdlog/details/tcp_client.h>
+    #endif
+
     #include <chrono>
     #include <functional>
     #include <mutex>

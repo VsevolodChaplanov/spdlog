@@ -3,12 +3,14 @@
 
 #pragma once
 
-#ifndef SPDLOG_HEADER_ONLY
-    #include <spdlog/sinks/stdout_color_sinks.h>
-#endif
+#ifndef SPDLOG_MODULE
+    #ifndef SPDLOG_HEADER_ONLY
+        #include <spdlog/sinks/stdout_color_sinks.h>
+    #endif
 
-#include <spdlog/common.h>
-#include <spdlog/logger.h>
+    #include <spdlog/common.h>
+    #include <spdlog/logger.h>
+#endif
 
 namespace spdlog {
 

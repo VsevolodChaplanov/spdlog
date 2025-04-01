@@ -3,19 +3,19 @@
 
 #pragma once
 
-#include <spdlog/details/null_mutex.h>
-#include <spdlog/details/os.h>
-#include <spdlog/details/synchronous_factory.h>
-#include <spdlog/sinks/base_sink.h>
-
 #ifndef SPDLOG_MODULE
-    #include <array>
-#endif
+    #include <spdlog/details/null_mutex.h>
+    #include <spdlog/details/os.h>
+    #include <spdlog/details/synchronous_factory.h>
+    #include <spdlog/sinks/base_sink.h>
 
-#ifndef SD_JOURNAL_SUPPRESS_LOCATION
-    #define SD_JOURNAL_SUPPRESS_LOCATION
+    #include <array>
+
+    #ifndef SD_JOURNAL_SUPPRESS_LOCATION
+        #define SD_JOURNAL_SUPPRESS_LOCATION
+    #endif
+    #include <systemd/sd-journal.h>
 #endif
-#include <systemd/sd-journal.h>
 
 namespace spdlog {
 namespace sinks {

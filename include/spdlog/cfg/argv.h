@@ -2,8 +2,11 @@
 // Distributed under the MIT License (http://opensource.org/licenses/MIT)
 
 #pragma once
-#include <spdlog/cfg/helpers.h>
-#include <spdlog/details/registry.h>
+
+#ifndef SPDLOG_MODULE
+    #include <spdlog/cfg/helpers.h>
+    #include <spdlog/details/registry.h>
+#endif
 
 //
 // Init log levels using each argv entry that starts with "SPDLOG_LEVEL="

@@ -3,12 +3,12 @@
 
 #pragma once
 
-#include "base_sink.h"
-#include <spdlog/details/log_msg.h>
-#include <spdlog/details/null_mutex.h>
-#include <spdlog/pattern_formatter.h>
-
 #ifndef SPDLOG_MODULE
+    #include "base_sink.h"
+    #include <spdlog/details/log_msg.h>
+    #include <spdlog/details/null_mutex.h>
+    #include <spdlog/pattern_formatter.h>
+
     #include <algorithm>
     #include <memory>
     #include <mutex>

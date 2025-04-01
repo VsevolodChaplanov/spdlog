@@ -5,9 +5,9 @@
 
 #ifndef SPDLOG_MODULE
     #include <mutex>
-#endif
 
-#include <spdlog/details/null_mutex.h>
+    #include <spdlog/details/null_mutex.h>
+#endif
 
 namespace spdlog {
 namespace details {

@@ -3,11 +3,11 @@
 
 #pragma once
 
-#include <spdlog/details/log_msg_buffer.h>
-#include <spdlog/details/mpmc_blocking_q.h>
-#include <spdlog/details/os.h>
-
 #ifndef SPDLOG_MODULE
+    #include <spdlog/details/log_msg_buffer.h>
+    #include <spdlog/details/mpmc_blocking_q.h>
+    #include <spdlog/details/os.h>
+
     #include <chrono>
     #include <functional>
     #include <memory>
@@ -16,7 +16,7 @@
 #endif
 
 namespace spdlog {
-class async_logger;
+SPDLOG_EXPORT class async_logger;
 
 namespace details {
 

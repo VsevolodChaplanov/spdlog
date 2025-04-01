@@ -3,15 +3,15 @@
 
 #pragma once
 
-#ifndef SPDLOG_HEADER_ONLY
-    #include <spdlog/logger.h>
-#endif
-
-#include <spdlog/details/backtracer.h>
-#include <spdlog/pattern_formatter.h>
-#include <spdlog/sinks/sink.h>
-
 #ifndef SPDLOG_MODULE
+    #ifndef SPDLOG_HEADER_ONLY
+        #include <spdlog/logger.h>
+    #endif
+
+    #include <spdlog/details/backtracer.h>
+    #include <spdlog/pattern_formatter.h>
+    #include <spdlog/sinks/sink.h>
+
     #include <cstdio>
 #endif
 

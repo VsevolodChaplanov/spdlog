@@ -12,17 +12,17 @@
 // QObject, and then use a standard signal/slot.
 //
 
-#include "spdlog/common.h"
-#include "spdlog/details/log_msg.h"
-#include "spdlog/details/synchronous_factory.h"
-#include "spdlog/sinks/base_sink.h"
-
 #ifndef SPDLOG_MODULE
-    #include <array>
-#endif
+    #include "spdlog/common.h"
+    #include "spdlog/details/log_msg.h"
+    #include "spdlog/details/synchronous_factory.h"
+    #include "spdlog/sinks/base_sink.h"
 
-#include <QPlainTextEdit>
-#include <QTextEdit>
+    #include <array>
+
+    #include <QPlainTextEdit>
+    #include <QTextEdit>
+#endif
 
 //
 // qt_sink class

@@ -9,13 +9,13 @@
 
 #pragma once
 
-#include <spdlog/common.h>
-#include <spdlog/details/registry.h>
-#include <spdlog/details/synchronous_factory.h>
-#include <spdlog/logger.h>
-#include <spdlog/version.h>
-
 #ifndef SPDLOG_MODULE
+    #include <spdlog/common.h>
+    #include <spdlog/details/registry.h>
+    #include <spdlog/details/synchronous_factory.h>
+    #include <spdlog/logger.h>
+    #include <spdlog/version.h>
+
     #include <chrono>
     #include <functional>
     #include <memory>

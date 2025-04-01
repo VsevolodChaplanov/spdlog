@@ -3,12 +3,12 @@
 
 #pragma once
 
-#include <spdlog/common.h>
-#include <spdlog/details/console_globals.h>
-#include <spdlog/details/null_mutex.h>
-#include <spdlog/sinks/sink.h>
-
 #ifndef SPDLOG_MODULE
+    #include <spdlog/common.h>
+    #include <spdlog/details/console_globals.h>
+    #include <spdlog/details/null_mutex.h>
+    #include <spdlog/sinks/sink.h>
+
     #include <array>
     #include <cstdint>
     #include <memory>

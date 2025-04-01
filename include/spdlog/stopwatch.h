@@ -3,8 +3,17 @@
 
 #pragma once
 
-#include <chrono>
-#include <spdlog/fmt/fmt.h>
+#ifndef SPDLOG_MODULE
+    #include <chrono>
+    #include <spdlog/fmt/fmt.h>
+#endif
+
+// TODO tmp - repeated from common.h
+#ifndef SPDLOG_EXPORT
+    #define SPDLOG_EXPORT
+    #define SPDLOG_EXPORT_BEGIN
+    #define SPDLOG_EXPORT_END
+#endif
 
 // Stopwatch support for spdlog  (using std::chrono::steady_clock).
 // Displays elapsed seconds since construction as double.
@@ -56,7 +65,7 @@ namespace
 #endif
 {
 
-template <>
+SPDLOG_EXPORT template <>
 struct formatter<spdlog::stopwatch> : formatter<double> {
     template <typename FormatContext>
     auto format(const spdlog::stopwatch &sw, FormatContext &ctx) const -> decltype(ctx.out()) {

@@ -3,12 +3,12 @@
 
 #pragma once
 
-#include <spdlog/common.h>
-#include <spdlog/details/log_msg.h>
-#include <spdlog/details/os.h>
-#include <spdlog/formatter.h>
-
 #ifndef SPDLOG_MODULE
+    #include <spdlog/common.h>
+    #include <spdlog/details/log_msg.h>
+    #include <spdlog/details/os.h>
+    #include <spdlog/formatter.h>
+
     #include <chrono>
     #include <ctime>
     #include <memory>

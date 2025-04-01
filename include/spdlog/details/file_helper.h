@@ -3,9 +3,9 @@
 
 #pragma once
 
-#include <spdlog/common.h>
-
 #ifndef SPDLOG_MODULE
+    #include <spdlog/common.h>
+
     #include <tuple>
 #endif
 

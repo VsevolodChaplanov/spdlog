@@ -3,8 +3,10 @@
 
 #pragma once
 
-#ifndef SPDLOG_HEADER_ONLY
-    #include <spdlog/details/periodic_worker.h>
+#ifndef SPDLOG_MODULE
+    #ifndef SPDLOG_HEADER_ONLY
+        #include <spdlog/details/periodic_worker.h>
+    #endif
 #endif
 
 namespace spdlog {

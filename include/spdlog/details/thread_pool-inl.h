@@ -3,15 +3,15 @@
 
 #pragma once
 
-#ifndef SPDLOG_HEADER_ONLY
-    #include <spdlog/details/thread_pool.h>
-#endif
-
 #ifndef SPDLOG_MODULE
-    #include <cassert>
-#endif
+    #ifndef SPDLOG_HEADER_ONLY
+        #include <spdlog/details/thread_pool.h>
+    #endif
 
-#include <spdlog/common.h>
+    #include <cassert>
+
+    #include <spdlog/common.h>
+#endif
 
 namespace spdlog {
 namespace details {

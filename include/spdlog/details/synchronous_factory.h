@@ -3,12 +3,14 @@
 
 #pragma once
 
-#include "registry.h"
+#ifndef SPDLOG_MODULE
+    #include "registry.h"
+#endif
 
 namespace spdlog {
 
 // Default logger factory-  creates synchronous loggers
-class logger;
+SPDLOG_EXPORT class logger;
 
 struct synchronous_factory {
     template <typename Sink, typename... SinkArgs>

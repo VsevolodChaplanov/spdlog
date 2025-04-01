@@ -3,11 +3,13 @@
 
 #pragma once
 
-#ifndef SPDLOG_HEADER_ONLY
-    #include <spdlog/details/log_msg.h>
-#endif
+#ifndef SPDLOG_MODULE
+    #ifndef SPDLOG_HEADER_ONLY
+        #include <spdlog/details/log_msg.h>
+    #endif
 
-#include <spdlog/details/os.h>
+    #include <spdlog/details/os.h>
+#endif
 
 namespace spdlog {
 namespace details {

@@ -9,25 +9,23 @@
 // Include a bundled header-only copy of fmtlib or an external one.
 // By default spdlog include its own copy.
 //
-#include <spdlog/tweakme.h>
+#ifndef SPDLOG_MODULE
+    #include <spdlog/tweakme.h>
 
-#if defined(SPDLOG_USE_STD_FORMAT)  // SPDLOG_USE_STD_FORMAT is defined - use std::format
-    #ifndef SPDLOG_MODULE
+    #if defined(SPDLOG_USE_STD_FORMAT)  // SPDLOG_USE_STD_FORMAT is defined - use std::format
         #include <format>
-    #endif
-#elif !defined(SPDLOG_FMT_EXTERNAL)
-    #if !defined(SPDLOG_COMPILED_LIB) && !defined(FMT_HEADER_ONLY)
-        #define FMT_HEADER_ONLY
-    #endif
-    #ifndef FMT_USE_WINDOWS_H
-        #define FMT_USE_WINDOWS_H 0
-    #endif
+    #elif !defined(SPDLOG_FMT_EXTERNAL)
+        #if !defined(SPDLOG_COMPILED_LIB) && !defined(FMT_HEADER_ONLY)
+            #define FMT_HEADER_ONLY
+        #endif
+        #ifndef FMT_USE_WINDOWS_H
+            #define FMT_USE_WINDOWS_H 0
+        #endif
 
-    #include <spdlog/fmt/bundled/core.h>
-    #include <spdlog/fmt/bundled/format.h>
+        #include <spdlog/fmt/bundled/core.h>
+        #include <spdlog/fmt/bundled/format.h>
 
-#else  // SPDLOG_FMT_EXTERNAL is defined - use external fmtlib
-    #if !defined(SPDLOG_MODULE)
+    #else  // SPDLOG_FMT_EXTERNAL is defined - use external fmtlib
         #include <fmt/core.h>
         #include <fmt/format.h>
     #endif

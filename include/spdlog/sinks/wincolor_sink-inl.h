@@ -3,18 +3,18 @@
 
 #pragma once
 
-#ifndef SPDLOG_HEADER_ONLY
-    #include <spdlog/sinks/wincolor_sink.h>
-#endif
-
-#include <spdlog/details/windows_include.h>
-
 #ifndef SPDLOG_MODULE
-    #include <wincon.h>
-#endif
+    #ifndef SPDLOG_HEADER_ONLY
+        #include <spdlog/sinks/wincolor_sink.h>
+    #endif
 
-#include <spdlog/common.h>
-#include <spdlog/pattern_formatter.h>
+    #include <spdlog/details/windows_include.h>
+
+    #include <wincon.h>
+
+    #include <spdlog/common.h>
+    #include <spdlog/pattern_formatter.h>
+#endif
 
 namespace spdlog {
 namespace sinks {

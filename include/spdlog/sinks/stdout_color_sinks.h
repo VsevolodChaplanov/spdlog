@@ -3,13 +3,15 @@
 
 #pragma once
 
-#ifdef _WIN32
-    #include <spdlog/sinks/wincolor_sink.h>
-#else
-    #include <spdlog/sinks/ansicolor_sink.h>
-#endif
+#ifndef SPDLOG_MODULE
+    #ifdef _WIN32
+        #include <spdlog/sinks/wincolor_sink.h>
+    #else
+        #include <spdlog/sinks/ansicolor_sink.h>
+    #endif
 
-#include <spdlog/details/synchronous_factory.h>
+    #include <spdlog/details/synchronous_factory.h>
+#endif
 
 namespace spdlog {
 namespace sinks {

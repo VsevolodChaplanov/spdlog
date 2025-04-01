@@ -16,11 +16,9 @@
     #include <netdb.h>
     #include <netinet/in.h>
     #include <netinet/udp.h>
-#endif
-#include <spdlog/common.h>
-#include <spdlog/details/os.h>
+    #include <spdlog/common.h>
+    #include <spdlog/details/os.h>
 
-#ifndef SPDLOG_MODULE
     #include <sys/socket.h>
     #include <unistd.h>
 

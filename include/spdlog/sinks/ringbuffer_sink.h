@@ -3,15 +3,15 @@
 
 #pragma once
 
-#include "spdlog/details/circular_q.h"
-#include "spdlog/details/log_msg_buffer.h"
-#include "spdlog/details/null_mutex.h"
-#include "spdlog/sinks/base_sink.h"
-
 #ifndef SPDLOG_MODULE
-#include <mutex>
-#include <string>
-#include <vector>
+    #include "spdlog/details/circular_q.h"
+    #include "spdlog/details/log_msg_buffer.h"
+    #include "spdlog/details/null_mutex.h"
+    #include "spdlog/sinks/base_sink.h"
+
+    #include <mutex>
+    #include <string>
+    #include <vector>
 #endif
 
 namespace spdlog {

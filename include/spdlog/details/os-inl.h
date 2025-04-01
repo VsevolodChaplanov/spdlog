@@ -3,13 +3,13 @@
 
 #pragma once
 
-#ifndef SPDLOG_HEADER_ONLY
-    #include <spdlog/details/os.h>
-#endif
-
-#include <spdlog/common.h>
-
 #ifndef SPDLOG_MODULE
+    #ifndef SPDLOG_HEADER_ONLY
+        #include <spdlog/details/os.h>
+    #endif
+
+    #include <spdlog/common.h>
+
     #include <algorithm>
     #include <array>
     #include <chrono>
@@ -21,50 +21,50 @@
     #include <sys/stat.h>
     #include <sys/types.h>
     #include <thread>
-#endif
 
-#ifdef _WIN32
-    #include <spdlog/details/windows_include.h>
-    #include <fileapi.h>  // for FlushFileBuffers
-    #include <io.h>       // for _get_osfhandle, _isatty, _fileno
-    #include <process.h>  // for _get_pid
+    #ifdef _WIN32
+        #include <spdlog/details/windows_include.h>
+        #include <fileapi.h>  // for FlushFileBuffers
+        #include <io.h>       // for _get_osfhandle, _isatty, _fileno
+        #include <process.h>  // for _get_pid
 
-    #ifdef __MINGW32__
-        #include <share.h>
+        #ifdef __MINGW32__
+            #include <share.h>
+        #endif
+
+        #if defined(SPDLOG_WCHAR_TO_UTF8_SUPPORT) || defined(SPDLOG_WCHAR_FILENAMES)
+            #include <cassert>
+            #include <limits>
+        #endif
+
+        #include <direct.h>  // for _mkdir/_wmkdir
+
+    #else  // unix
+
+        #include <fcntl.h>
+        #include <unistd.h>
+
+        #ifdef __linux__
+            #include <sys/syscall.h>  //Use gettid() syscall under linux to get thread id
+
+        #elif defined(_AIX)
+            #include <pthread.h>  // for pthread_getthrds_np
+
+        #elif defined(__DragonFly__) || defined(__FreeBSD__)
+            #include <pthread_np.h>  // for pthread_getthreadid_np
+
+        #elif defined(__NetBSD__)
+            #include <lwp.h>  // for _lwp_self
+
+        #elif defined(__sun)
+            #include <thread.h>  // for thr_self
+        #endif
+
+    #endif  // unix
+
+    #if defined __APPLE__
+        #include <AvailabilityMacros.h>
     #endif
-
-    #if defined(SPDLOG_WCHAR_TO_UTF8_SUPPORT) || defined(SPDLOG_WCHAR_FILENAMES)
-        #include <cassert>
-        #include <limits>
-    #endif
-
-    #include <direct.h>  // for _mkdir/_wmkdir
-
-#else  // unix
-
-    #include <fcntl.h>
-    #include <unistd.h>
-
-    #ifdef __linux__
-        #include <sys/syscall.h>  //Use gettid() syscall under linux to get thread id
-
-    #elif defined(_AIX)
-        #include <pthread.h>  // for pthread_getthrds_np
-
-    #elif defined(__DragonFly__) || defined(__FreeBSD__)
-        #include <pthread_np.h>  // for pthread_getthreadid_np
-
-    #elif defined(__NetBSD__)
-        #include <lwp.h>  // for _lwp_self
-
-    #elif defined(__sun)
-        #include <thread.h>  // for thr_self
-    #endif
-
-#endif  // unix
-
-#if defined __APPLE__
-    #include <AvailabilityMacros.h>
 #endif
 
 #ifndef __has_feature           // Clang - feature checking macros.

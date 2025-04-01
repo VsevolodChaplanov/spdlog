@@ -3,8 +3,10 @@
 
 #pragma once
 
-#include <spdlog/common.h>
-#include <unordered_map>
+#ifndef SPDLOG_MODULE
+    #include <spdlog/common.h>
+    #include <unordered_map>
+#endif
 
 namespace spdlog {
 namespace cfg {

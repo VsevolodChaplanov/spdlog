@@ -5,9 +5,9 @@
 
 #ifndef SPDLOG_MODULE
     #include <ctime>  // std::time_t
-#endif
 
-#include <spdlog/common.h>
+    #include <spdlog/common.h>
+#endif
 
 namespace spdlog {
 namespace details {

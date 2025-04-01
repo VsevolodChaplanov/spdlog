@@ -3,10 +3,10 @@
 
 #pragma once
 
-#include <spdlog/details/circular_q.h>
-#include <spdlog/details/log_msg_buffer.h>
-
 #ifndef SPDLOG_MODULE
+    #include <spdlog/details/circular_q.h>
+    #include <spdlog/details/log_msg_buffer.h>
+
     #include <atomic>
     #include <functional>
     #include <mutex>

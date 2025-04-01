@@ -5,14 +5,14 @@
 
 #ifndef SPDLOG_MODULE
     #include <cstdio>
-#endif
 
-#include <spdlog/details/console_globals.h>
-#include <spdlog/details/synchronous_factory.h>
-#include <spdlog/sinks/sink.h>
+    #include <spdlog/details/console_globals.h>
+    #include <spdlog/details/synchronous_factory.h>
+    #include <spdlog/sinks/sink.h>
 
-#ifdef _WIN32
-    #include <spdlog/details/windows_include.h>
+    #ifdef _WIN32
+        #include <spdlog/details/windows_include.h>
+    #endif
 #endif
 
 namespace spdlog {

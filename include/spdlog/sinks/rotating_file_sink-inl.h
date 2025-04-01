@@ -3,17 +3,17 @@
 
 #pragma once
 
-#ifndef SPDLOG_HEADER_ONLY
-    #include <spdlog/sinks/rotating_file_sink.h>
-#endif
-
-#include <spdlog/common.h>
-
-#include <spdlog/details/file_helper.h>
-#include <spdlog/details/null_mutex.h>
-#include <spdlog/fmt/fmt.h>
-
 #ifndef SPDLOG_MODULE
+    #ifndef SPDLOG_HEADER_ONLY
+        #include <spdlog/sinks/rotating_file_sink.h>
+    #endif
+
+    #include <spdlog/common.h>
+
+    #include <spdlog/details/file_helper.h>
+    #include <spdlog/details/null_mutex.h>
+    #include <spdlog/fmt/fmt.h>
+
     #include <cerrno>
     #include <chrono>
     #include <ctime>

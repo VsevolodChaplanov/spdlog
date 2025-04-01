@@ -3,15 +3,15 @@
 
 #pragma once
 
-#ifndef SPDLOG_HEADER_ONLY
-    #include <spdlog/cfg/helpers.h>
-#endif
-
-#include <spdlog/details/os.h>
-#include <spdlog/details/registry.h>
-#include <spdlog/spdlog.h>
-
 #ifndef SPDLOG_MODULE
+    #ifndef SPDLOG_HEADER_ONLY
+        #include <spdlog/cfg/helpers.h>
+    #endif
+
+    #include <spdlog/details/os.h>
+    #include <spdlog/details/registry.h>
+    #include <spdlog/spdlog.h>
+
     #include <algorithm>
     #include <sstream>
     #include <string>

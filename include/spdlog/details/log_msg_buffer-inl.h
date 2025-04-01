@@ -3,8 +3,10 @@
 
 #pragma once
 
-#ifndef SPDLOG_HEADER_ONLY
-    #include <spdlog/details/log_msg_buffer.h>
+#ifndef SPDLOG_MODULE
+    #ifndef SPDLOG_HEADER_ONLY
+        #include <spdlog/details/log_msg_buffer.h>
+    #endif
 #endif
 
 namespace spdlog {

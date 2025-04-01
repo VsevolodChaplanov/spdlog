@@ -8,11 +8,11 @@
     #include <memory>
     #include <mutex>
     #include <string>
-#endif
 
-#include <spdlog/details/console_globals.h>
-#include <spdlog/details/null_mutex.h>
-#include <spdlog/sinks/sink.h>
+    #include <spdlog/details/console_globals.h>
+    #include <spdlog/details/null_mutex.h>
+    #include <spdlog/sinks/sink.h>
+#endif
 
 namespace spdlog {
 namespace sinks {

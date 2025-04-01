@@ -10,18 +10,20 @@
 // http://mongocxx.org/mongocxx-v3/installation/
 //
 
-#include "spdlog/common.h"
-#include "spdlog/details/log_msg.h"
-#include "spdlog/sinks/base_sink.h"
-#include <spdlog/details/synchronous_factory.h>
+#ifndef SPDLOG_MODULE
+    #include "spdlog/common.h"
+    #include "spdlog/details/log_msg.h"
+    #include "spdlog/sinks/base_sink.h"
+    #include <spdlog/details/synchronous_factory.h>
 
-#include <bsoncxx/builder/stream/document.hpp>
-#include <bsoncxx/types.hpp>
-#include <bsoncxx/view_or_value.hpp>
+    #include <bsoncxx/builder/stream/document.hpp>
+    #include <bsoncxx/types.hpp>
+    #include <bsoncxx/view_or_value.hpp>
 
-#include <mongocxx/client.hpp>
-#include <mongocxx/instance.hpp>
-#include <mongocxx/uri.hpp>
+    #include <mongocxx/client.hpp>
+    #include <mongocxx/instance.hpp>
+    #include <mongocxx/uri.hpp>
+#endif
 
 namespace spdlog {
 namespace sinks {

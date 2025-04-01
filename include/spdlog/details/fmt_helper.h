@@ -5,18 +5,18 @@
 #ifndef SPDLOG_MODULE
     #include <chrono>
     #include <iterator>
-#endif
 
-#include <spdlog/common.h>
-#include <spdlog/fmt/fmt.h>
+    #include <spdlog/common.h>
+    #include <spdlog/fmt/fmt.h>
 
-#ifndef SPDLOG_MODULE
-    #include <type_traits>
-#endif
+    #ifndef SPDLOG_MODULE
+        #include <type_traits>
+    #endif
 
-#if defined(SPDLOG_USE_STD_FORMAT) && !defined(SPDLOG_MODULE)
-    #include <charconv>
-    #include <limits>
+    #if defined(SPDLOG_USE_STD_FORMAT) && !defined(SPDLOG_MODULE)
+        #include <charconv>
+        #include <limits>
+    #endif
 #endif
 
 // Some fmt helpers to efficiently format and pad ints and strings

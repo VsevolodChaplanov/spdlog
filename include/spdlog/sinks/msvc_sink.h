@@ -5,13 +5,13 @@
 
 #if defined(_WIN32)
 
-    #include <spdlog/details/null_mutex.h>
-    #if defined(SPDLOG_WCHAR_TO_UTF8_SUPPORT)
-        #include <spdlog/details/os.h>
-    #endif
-    #include <spdlog/sinks/base_sink.h>
-
     #ifndef SPDLOG_MODULE
+        #include <spdlog/details/null_mutex.h>
+        #if defined(SPDLOG_WCHAR_TO_UTF8_SUPPORT)
+            #include <spdlog/details/os.h>
+        #endif
+        #include <spdlog/sinks/base_sink.h>
+
         #include <mutex>
         #include <string>
     #endif

@@ -3,31 +3,32 @@
 
 #pragma once
 
-#ifndef SPDLOG_HEADER_ONLY
-    #include <spdlog/sinks/stdout_sinks.h>
-#endif
-
 #ifndef SPDLOG_MODULE
-    #include <memory>
-#endif
-
-#include <spdlog/details/console_globals.h>
-#include <spdlog/pattern_formatter.h>
-#include <spdlog/details/os.h>
-
-#ifdef _WIN32
-    // under windows using fwrite to non-binary stream results in \r\r\n (see issue #1675)
-    // so instead we use ::FileWrite
-    #include <spdlog/details/windows_include.h>
-
-    #ifndef _USING_V110_SDK71_  // fileapi.h doesn't exist in winxp
-        #include <fileapi.h>    // WriteFile (..)
+    #ifndef SPDLOG_HEADER_ONLY
+        #include <spdlog/sinks/stdout_sinks.h>
     #endif
 
-    #include <io.h>     // _get_osfhandle(..)
-    #include <stdio.h>  // _fileno(..)
-#endif                  // _WIN32
+    #ifndef SPDLOG_MODULE
+        #include <memory>
+    #endif
 
+    #include <spdlog/details/console_globals.h>
+    #include <spdlog/pattern_formatter.h>
+    #include <spdlog/details/os.h>
+
+    #ifdef _WIN32
+        // under windows using fwrite to non-binary stream results in \r\r\n (see issue #1675)
+        // so instead we use ::FileWrite
+        #include <spdlog/details/windows_include.h>
+
+        #ifndef _USING_V110_SDK71_  // fileapi.h doesn't exist in winxp
+            #include <fileapi.h>    // WriteFile (..)
+        #endif
+
+        #include <io.h>     // _get_osfhandle(..)
+        #include <stdio.h>  // _fileno(..)
+    #endif                  // _WIN32
+#endif
 namespace spdlog {
 
 namespace sinks {

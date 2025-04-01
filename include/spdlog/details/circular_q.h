@@ -7,9 +7,9 @@
 #ifndef SPDLOG_MODULE
     #include <cassert>
     #include <vector>
-#endif
 
-#include "spdlog/common.h"
+    #include "spdlog/common.h"
+#endif
 
 namespace spdlog {
 namespace details {
